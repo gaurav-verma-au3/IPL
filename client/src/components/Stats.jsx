@@ -30,10 +30,10 @@ const Stats = props => {
       <div className="row">
         <div className="col-md-12 col-sm-12 min-100 p-5  ">
           <div className="row">
-            <div className="col-6">
+            <div className="col-6 d-flex align-items-center justify-content-start">
               <h2 className="">Statistics</h2>
             </div>
-            <div className="col-6">
+            <div className="col-6 d-flex align-items-center justify-content-end">
               <div className="form-group d-flex align-items-center">
                 <label className="mr-3 m-0">Select Season: </label>
                 <select
