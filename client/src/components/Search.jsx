@@ -36,16 +36,17 @@ const Search = ({ setSearchResults, setVisibility }) => {
 
   return (
     <>
-      <div class="input-group bg-secondary rounded-0">
-        <div class="input-group-prepend">
-          <div class="form-group rounded-0 m-0">
+      <div className="input-group bg-secondary rounded-0">
+        <div className="input-group-prepend">
+          <div className="form-group rounded-0 m-0">
             <select
-              class="form-control bg-dark text-light rounded-0 border-0"
+              className="form-control bg-dark text-light rounded-0 border-0"
               onChange={e => {
                 setSearchTarget(e.target.value);
               }}
+              defaultValue="All"
             >
-              <option selected>All</option>
+              <option>All</option>
               {seasons
                 ? seasons.map((season, index) => {
                     return <option key={index + 576}>{season}</option>;
@@ -54,10 +55,10 @@ const Search = ({ setSearchResults, setVisibility }) => {
             </select>
           </div>
         </div>
-        <div class="input-group-prepend">
+        <div className="input-group-prepend">
           <input
             type="text"
-            class="form-control bg-secondary border-0  rounded-0 text-light"
+            className="form-control bg-secondary border-0  rounded-0 text-light"
             onChange={e => {
               handleChange(e);
             }}
@@ -65,7 +66,7 @@ const Search = ({ setSearchResults, setVisibility }) => {
         </div>
 
         <span
-          class="input-group-text bg-secondary text-light border-0"
+          className="input-group-text bg-secondary text-light border-0"
           id="basic-addon1"
         >
           {status === "searching" ? (

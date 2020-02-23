@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { API_ORIGIN } from "../config";
 import Filter from "./Filter";
 import Animation from "./Animation";
@@ -10,7 +9,6 @@ const SeasonDetail = props => {
 
   const [seasonDetails, setSeasonDetails] = useState(null);
   const [filtered, setFiltered] = useState(null);
-  const [error, setError] = useState(null);
   const dataToMap = filtered ? filtered : seasonDetails;
 
   //use effect
@@ -21,8 +19,8 @@ const SeasonDetail = props => {
       .then(data => {
         setSeasonDetails(data);
       })
-      .catch(error => setError("Failed to fetch data"));
-  }, []);
+      .catch(error => console.log(error));
+  }, [season]);
 
   //pagination logic
   const [currentPage, setCurrentPage] = useState(1);
@@ -54,9 +52,10 @@ const SeasonDetail = props => {
               <div className="col-6 d-flex justify-content-end">
                 <select
                   onChange={e => setItemsPerPage(e.target.value)}
-                  class="custom-select w-50"
+                  defaultValue="10"
+                  className="custom-select w-50"
                 >
-                  <option selected>10</option>
+                  <option value="10">10</option>
                   <option value="20">20</option>
                   <option value="30">30</option>
                 </select>

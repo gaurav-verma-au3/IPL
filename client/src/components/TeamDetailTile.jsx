@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 const TeamDetailTile = ({ teamDetails, itemsToshow }) => {
   return (
     <>
-      {itemsToshow.map(key => {
+      {itemsToshow.map((key, index) => {
         return (
-          <div className="col-md-4 col-sm-12">
+          <div className="col-md-4 col-sm-12" key={index + 5653}>
             <div
               className={`text-center alert ${
                 teamDetails.matches[key].won ? "alert-success" : "alert-danger"

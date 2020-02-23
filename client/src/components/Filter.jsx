@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { getLocations, getTeams, applyFilters } from "./logic/filterLogic";
 
-const Filter = props => {
-  const { data } = props;
+const Filter = ({ data, setFiltered }) => {
   const cities = getLocations(data);
   const teams = getTeams(data);
-  const [selectedCity, setSelectedCity] = useState(null);
-  const [selectedTeam, setSelectedTeam] = useState(null);
+  const [selectedCity, setSelectedCity] = useState("All");
+  const [selectedTeam, setSelectedTeam] = useState("All");
 
   const handleCityChange = e => {
-    const selected = e.target.value === "All" ? null : e.target.value;
-    setSelectedCity(selected);
+    // const selected = e.target.value === "All" ? null : e.target.value;
+    setSelectedCity(e.target.value);
   };
 
   const handleTeamChange = e => {
@@ -18,11 +17,11 @@ const Filter = props => {
   };
 
   useEffect(() => {
-    if (selectedCity || selectedTeam) {
+    if (data) {
       const filtered = applyFilters(data, selectedCity, selectedTeam);
-      props.setFiltered(filtered);
+      setFiltered(filtered);
     }
-  }, [selectedCity, selectedTeam]);
+  }, [selectedCity, selectedTeam, data, setFiltered]);
 
   return (
     <div className="container-fluid">
@@ -31,10 +30,14 @@ const Filter = props => {
           <h5 className="m-0">Filters</h5>
         </div>
         <div className="col-4">
-          <div class="form-group ">
+          <div className="form-group ">
             <label className="">By Location: </label>
-            <select class="form-control" onChange={e => handleCityChange(e)}>
-              <option selected>All</option>
+            <select
+              className="form-control"
+              onChange={e => handleCityChange(e)}
+              defaultValue="All"
+            >
+              <option>All</option>
               {cities.map((city, index) => {
                 return <option key={index + 2489}>{city}</option>;
               })}
@@ -42,12 +45,14 @@ const Filter = props => {
           </div>
         </div>
         <div className="col-4">
-          <div class="form-group">
+          <div className="form-group">
             <label className="">By Team: </label>
-            <select class="form-control" onChange={e => handleTeamChange(e)}>
-              <option value={null} selected>
-                All
-              </option>
+            <select
+              className="form-control"
+              onChange={e => handleTeamChange(e)}
+              defaultValue="All"
+            >
+              <option>All</option>
               {teams.map((team, index) => {
                 return <option key={index + 8326}>{team}</option>;
               })}

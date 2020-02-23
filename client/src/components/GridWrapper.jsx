@@ -13,9 +13,12 @@ const GridWrapper = props => {
           <div className="container mt-5 d-flex align-items-center justify-content-center">
             <div className="row justify-content-center">
               {arr ? (
-                arr.map(item => {
+                arr.map((item, index) => {
                   return (
-                    <div className="col-sm-6 col-md-3 col-xs-6 border border-dark p-3 rounded text-center m-2">
+                    <div
+                      className="col-sm-6 col-md-3 col-xs-6 border border-dark p-3 rounded text-center m-2"
+                      key={index + 7638}
+                    >
                       <Link className="" to={`/${purpose}/${item}`}>
                         {item}
                       </Link>

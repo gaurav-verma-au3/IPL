@@ -6,7 +6,6 @@ import Chart from "./Chart";
 const Stats = props => {
   const [seasons, setSeasons] = useState(null);
   const [visualData, setVisualData] = useState(null);
-  const [error, setError] = useState(null);
 
   const fetchSeasonData = e => {
     setVisualData("loading");
@@ -15,7 +14,7 @@ const Stats = props => {
       .then(data => {
         setVisualData(data);
       })
-      .catch(error => setError("Failed to fetch data"));
+      .catch(error => console.log(error));
   };
 
   useEffect(() => {
@@ -24,7 +23,7 @@ const Stats = props => {
       .then(data => {
         setSeasons(data);
       })
-      .catch(error => setError("Failed to fetch data"));
+      .catch(error => console.log(error));
   }, []);
   return (
     <div className="container-fluid pt-5">
@@ -35,9 +34,12 @@ const Stats = props => {
               <h2 className="">Statistics</h2>
             </div>
             <div className="col-6">
-              <div class="form-group d-flex align-items-center">
+              <div className="form-group d-flex align-items-center">
                 <label className="mr-3 m-0">Select Season: </label>
-                <select class="form-control w-50" onChange={e => fetchSeasonData(e)}>
+                <select
+                  className="form-control w-50"
+                  onChange={e => fetchSeasonData(e)}
+                >
                   <option selected>- - -</option>
                   {seasons
                     ? seasons.map((season, index) => {
@@ -56,7 +58,9 @@ const Stats = props => {
               ) : visualData === "loading" ? (
                 <Animation />
               ) : (
-                <h6 className="mt-5">Please select a season from above Dropdown ...</h6>
+                <h6 className="mt-5">
+                  Please select a season from above Dropdown ...
+                </h6>
               )}
             </div>
           </div>

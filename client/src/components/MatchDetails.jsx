@@ -6,8 +6,6 @@ const MatchDetails = props => {
   const matchId = props.match.params.matchId;
   const [matchDeatils, setMatchDetails] = useState(null);
   const [match, setMatch] = useState(null);
-  const [filtered, setFiltered] = useState(null);
-  const [error, setError] = useState(null);
 
   const url = `${API_ORIGIN}/match/${matchId}`;
   const getTotal = (matchDetails, team) => {
@@ -28,10 +26,9 @@ const MatchDetails = props => {
       .then(data => {
         setMatch(data[0][0]);
         setMatchDetails(data[1]);
-        setFiltered(null);
       })
-      .catch(error => setError("Failed to fetch data"));
-  }, []);
+      .catch(error => console.log(error));
+  }, [url]);
 
   return (
     <>
@@ -84,9 +81,12 @@ const MatchDetails = props => {
                 Ball by Ball :
                 <hr />
                 <div className="row">
-                  {matchDeatils.map(ball => {
+                  {matchDeatils.map((ball, index) => {
                     return (
-                      <div className="col-md-8 col-sm-12 alert alert-secondary">
+                      <div
+                        className="col-md-8 col-sm-12 alert alert-secondary"
+                        key={index + 45326}
+                      >
                         <p>
                           {`[Inning :  ${ball.inning}] ${ball.over}.${ball.ball}`}{" "}
                           {ball.bowler} to {ball.batsman}

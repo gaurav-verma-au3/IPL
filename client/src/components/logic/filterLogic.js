@@ -26,17 +26,17 @@ export const applyFilters = (arr, city, team) => {
   let cityFiltered = [],
     teamFiltered = [];
 
-  if (city) {
+  if (city !== "All") {
     for (let i = 0; i < len; i++)
       if (arr[i].city === city) cityFiltered.push(arr[i]);
-  } else if (team) {
+  } else if (team !== "All") {
     for (let i = 0; i < len; i++)
       if (arr[i].team1 === team || arr[i].team2 === team)
         teamFiltered.push(arr[i]);
   }
 
   let all = cityFiltered.concat(teamFiltered);
-  if (city && team) {
+  if (city !== "All" && team !== "All") {
     let allLen = all.length;
     for (let i = 0; i < allLen; i++) {
       if (
@@ -46,6 +46,11 @@ export const applyFilters = (arr, city, team) => {
         filtered.push(all[i]);
     }
   }
+
+  if (team === "All" && city === "All") {
+    return arr;
+  }
+
   return filtered.length > 0
     ? filtered
     : cityFiltered.length > 0

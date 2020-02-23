@@ -8,7 +8,6 @@ import Pagination from "./Pagination";
 const TeamDetail = props => {
   const uriPath = encodeURIComponent(props.match.params.team);
   const [teamDetails, setTeamDetails] = useState(null);
-  const [error, setError] = useState(null);
   useEffect(() => {
     let url = `${API_ORIGIN}/teams/${uriPath}`;
     fetch(url)
@@ -16,8 +15,8 @@ const TeamDetail = props => {
       .then(data => {
         setTeamDetails(data);
       })
-      .catch(error => setError("Failed to fetch data"));
-  }, []);
+      .catch(error => console.log(error));
+  }, [uriPath]);
 
   //pagination logic
   const [currentPage, setCurrentPage] = useState(1);
@@ -61,8 +60,8 @@ const TeamDetail = props => {
                 <hr />
 
                 <div className="row">
-                  {teamDetails.seasons.map(season => (
-                    <div className="col-3">
+                  {teamDetails.seasons.map((season, index) => (
+                    <div className="col-3" key={index + 6764}>
                       <div
                         className="text-center alert alert-primary m-1 p-1"
                         role="alert"
@@ -84,9 +83,10 @@ const TeamDetail = props => {
                   <div className="col-6 d-flex justify-content-end">
                     <select
                       onChange={e => setItemsPerPage(e.target.value)}
-                      class="custom-select w-50"
+                      defaultValue="10"
+                      className="custom-select w-50"
                     >
-                      <option selected>10</option>
+                      <option value="10">10</option>
                       <option value="20">20</option>
                       <option value="30">30</option>
                     </select>
