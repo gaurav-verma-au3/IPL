@@ -17,9 +17,11 @@ const SearchResults = ({ results, setVisibility }) => {
         {results.map((result, index) => {
           return (
             <Link
+              to={`/match/${result.id}`}
               type="button"
               key={index + 7833}
               className="btn btn-dark rounded-0 w-100"
+              onClick={e=>setVisibility(null)}
             >
               <div className="row">
                 <div className="col-4">{result.season}</div>
