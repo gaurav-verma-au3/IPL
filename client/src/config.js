@@ -1,1 +1,1 @@
-export const API_ORIGIN = "http://localhost:3001";
+export const API_ORIGIN = "https://gaurav-dev-ipl.herokuapp.com";
