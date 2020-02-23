@@ -4,7 +4,12 @@
   "description": "Ipl analytic App. ",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "client-install": "npm install --prefix client",
+    "start": "node app.js",
+    "server": "node app.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "Gaurav Verma",
   "license": "MIT",
@@ -12,8 +17,12 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "csvtojson": "^2.0.10",
+    "concurrently": "^5.0.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongodb": "^3.5.3"
+  },
+  "engines": {
+    "node": "12.14.0"
   }
 }
