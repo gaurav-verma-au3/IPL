@@ -29,6 +29,7 @@ const Stats = props => {
     <div className="container-fluid pt-5">
       <div className="row">
         <div className="col-md-12 col-sm-12 min-100 p-5  ">
+          <hr />
           <div className="row">
             <div className="col-6 d-flex align-items-center justify-content-start">
               <h2 className="">Statistics</h2>
