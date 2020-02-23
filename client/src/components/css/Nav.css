@@ -1,0 +1,39 @@
+#nav {
+  background-color: beige;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 900;
+}
+
+.nav-list {
+  padding: 0 10px;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-list-item {
+  margin: 0 3px;
+  font-weight: 500;
+  cursor: pointer;
+  list-style-type: none;
+}
+
+.nav-list-item:hover {
+  color: red;
+}
+
+.search-container {
+  position: absolute;
+  margin-top: 10vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
