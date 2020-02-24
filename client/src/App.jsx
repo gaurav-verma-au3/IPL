@@ -13,12 +13,14 @@ function App() {
     <Router>
       <div className="App">
         <Nav />
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/teams" component={Teams} />
-        <Route path="/team/:team" component={TeamDetail} />
-        <Route path="/season/:season" component={SeasonDetail} />
-        <Route path="/match/:matchId" component={MatchDetails} />
-        <Route path="/stats" component={Stats} />
+        <div className="container-fluid mt-5">
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/teams" component={Teams} />
+          <Route path="/team/:team" component={TeamDetail} />
+          <Route path="/season/:season" component={SeasonDetail} />
+          <Route path="/match/:matchId" component={MatchDetails} />
+          <Route path="/stats" component={Stats} />
+        </div>
       </div>
     </Router>
   );

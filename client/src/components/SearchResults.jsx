@@ -13,7 +13,6 @@ const SearchResults = ({ results, setVisibility }) => {
           {" "}
           Close <MdClose className="m-0 p-0" />
         </h5>
-
         {results.map((result, index) => {
           return (
             <Link
@@ -21,7 +20,7 @@ const SearchResults = ({ results, setVisibility }) => {
               type="button"
               key={index + 7833}
               className="btn btn-dark rounded-0 w-100"
-              onClick={e=>setVisibility(null)}
+              onClick={e => setVisibility(null)}
             >
               <div className="row">
                 <div className="col-4">{result.season}</div>

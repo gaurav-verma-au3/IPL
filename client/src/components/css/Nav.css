@@ -1,6 +1,7 @@
 #nav {
   background-color: beige;
-  height: 10vh;
+  top: 0;
+  height: 12vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,10 +31,8 @@
 
 .search-container {
   position: absolute;
-  margin-top: 10vh;
+  margin-top: 12vh;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  min-height: 100%;
   z-index: 999;
 }

@@ -34,7 +34,7 @@ const TeamDetail = props => {
           <div className="col-md-12 col-sm-12 min-100 p-5 ">
             {teamDetails ? (
               <>
-                <h2>{teamDetails.team}</h2>
+                <h2 className="mt-5">{teamDetails.team}</h2>
                 <div className="row">
                   <div className="col-md-4 col-sm-12">
                     <div className="alert alert-info">

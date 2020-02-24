@@ -32,8 +32,8 @@ const SeasonDetail = props => {
   return (
     <div className="container-fluid pt-5">
       <div className="row">
-        <div className="col-md-12 col-sm-12">
-          <h2 className="">Season : {season}</h2>
+        <div className="col-md-12 col-sm-12 mt-3">
+          <h2 className="mt-5">Season : {season}</h2>
           <hr />
           <Filter data={seasonDetails} setFiltered={setFiltered} />
           <hr />

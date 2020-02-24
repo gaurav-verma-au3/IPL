@@ -9,7 +9,7 @@ const GridWrapper = props => {
     <div className="container-fluid pt-5">
       <div className="row">
         <div className="col-md-12 col-sm-12 min-100 p-5">
-          <h1 className="text-center ">{purpose.toUpperCase() + "S"}</h1>
+          <h1 className="text-center mt-5">{purpose.toUpperCase() + "S"}</h1>
           <div className="container mt-5 d-flex align-items-center justify-content-center">
             <div className="row justify-content-center">
               {arr ? (
