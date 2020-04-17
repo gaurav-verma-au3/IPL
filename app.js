@@ -10,6 +10,7 @@ const seasons = require("./routes/seasons");
 const teams = require("./routes/teams");
 const match = require("./routes/match");
 const search = require("./routes/search");
+const player = require("./routes/player")
 app.use(cors());
 const bodyParser = require("body-parser");
 
@@ -30,6 +31,8 @@ app.use("/", seasons);
 app.use("/", teams);
 app.use("/", match);
 app.use("/", search);
+app.use("/", player);
+
 
 //production mode
 if (process.env.NODE_ENV === 'production') {
